@@ -1,0 +1,88 @@
+/* Common styling for all pages */
+.page-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    text-align: center; /* Center-aligns the content */
+}
+
+.navigation-back, .contact-info {
+    margin-bottom: 20px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.back-to-home, .btn-primary {
+    color: #007bff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.back-to-home {
+    background-color: transparent;
+}
+
+.btn-primary {
+    position: relative;
+    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    border: none;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    transition: all 0.4s;
+}
+
+.btn-primary:hover::after {
+    left: 100%;
+}
+
+.contact-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contact-info li {
+    margin-bottom: 10px;
+}
+
+/* Define the gradient animation */
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+/* Apply the animation to your primary buttons */
+.btn-primary {
+    background-size: 200% 200%; /* Make the gradient large enough to enable the sliding effect */
+    position: relative; /* Maintain the button's relative positioning */
+    color: white;
+    border: none;
+    overflow: hidden; /* Ensure the gradient doesn't extend outside the button bounds */
+    transition: all 0.3s ease; /* Smooth transition for other effects */
+}
+
+.btn-primary:hover {
+    animation: gradient-animation 3s linear infinite; /* Continuous animation when hovered */
+}

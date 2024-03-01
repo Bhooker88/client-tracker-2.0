@@ -1,0 +1,54 @@
+/* src/css/FreeWillKit.css */
+.freewill-container {
+    padding: 20px;
+    max-width: 800px; /* Adjust width as needed */
+    margin: 40px auto; /* Centers the container with top and bottom margin */
+    background-color: #fff; /* White background */
+    border-radius: 8px; /* Rounded corners for the box */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    font-family: Arial, sans-serif; /* Consistent font */
+}
+
+.navigation-back {
+    margin-bottom: 20px; /* Space between back link and content */
+    text-align: center; /* Center back link */
+}
+
+.back-to-home {
+    color: #007bff; /* Link color */
+    text-decoration: none; /* No underline */
+    font-weight: 500; /* Slightly bolder */
+    display: inline-block; /* Necessary for margins to apply */
+    margin-bottom: 20px; /* Margin from the link to content */
+}
+
+.contact-info, .meeting-cta {
+    background-color: #f8f9fa; /* Light grey background */
+    padding: 20px; /* Padding inside the sections */
+    margin-top: 20px; /* Space above sections */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Consistent shadow effect */
+    text-align: center; /* Center text in contact info and CTA */
+}
+
+.contact-info ul, .meeting-cta ul {
+    list-style-type: none; /* No bullet points */
+    padding: 0; /* No padding to align with the start of the text */
+    text-align: left; /* Align text to the left within centered block */
+    display: inline-block; /* Align list properly within centered section */
+    margin-top: 0; /* No extra space on top of the list */
+}
+
+.contact-info li, .meeting-cta li {
+    margin-bottom: 10px; /* Space between list items */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Primary button color */
+    color: white; /* Text color */
+    text-decoration: none; /* No underline */
+    padding: 10px 20px; /* Padding around text */
+    border-radius: 5px; /* Rounded button edges */
+    display: inline-block; /* Center the button */
+    margin-top: 20px; /* Space from text to button */
+}

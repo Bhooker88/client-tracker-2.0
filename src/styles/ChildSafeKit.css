@@ -1,0 +1,39 @@
+/* src/css/ChildSafeKit.css */
+.childsafe-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.features ul, .how-to ol {
+    margin-left: 20px;
+}
+
+.download-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Adjust based on your design preference */
+}
+
+.download-btn {
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.navigation-back {
+    margin-bottom: 20px; /* Adjust based on your layout */
+}
+
+.back-to-home {
+    color: #007bff; /* Or any color that fits your design */
+    text-decoration: none; /* Removes underline */
+    font-weight: 500; /* Adjust based on your design */
+    display: inline-block; /* For proper spacing around the link */
+    margin-bottom: 20px; /* Space before the content starts */
+}

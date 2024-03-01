@@ -1,0 +1,94 @@
+/* src/css/Home.css */
+.home-container {
+    padding: 20px;
+    max-width: 1200px; /* Limit max width for better readability */
+    margin: auto; /* Center the container */
+    background-color: #f8f9fa; /* Light background color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
+    text-align: center;
+}
+
+.offers-section {
+    margin-top: 40px;
+    background-color: white; /* Contrast background for offers */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+
+.offers-section h2 {
+    margin-bottom: 20px;
+    color: #333; /* Darker text for better readability */
+}
+
+.offers-section ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+    gap: 20px; /* Space between offers */
+}
+
+.offers-section li {
+    background-color: #e9ecef; /* Light background for each offer */
+    padding: 15px;
+    border-radius: 8px; /* Rounded corners */
+    width: calc(33.333% - 20px); /* Three items per row minus gap */
+    text-align: center; /* Center text */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+
+.offers-section a {
+    color: #007bff; /* Bootstrap primary color for links */
+    text-decoration: none; /* No underline */
+    font-weight: bold; /* Make the link text bold */
+}
+
+/* Adjustments for agent photo and introduction */
+.agent-introduction {
+    display: block; /* Change from flex to block to stack elements vertically */
+    margin-bottom: 40px; /* Maintain bottom margin */
+    background-color: white; /* Keep background contrast */
+    padding: 20px;
+    border-radius: 8px; /* Keep rounded corners */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Maintain subtle shadow */
+    text-align: center; /* Center-align the text for better readability */
+    max-width: 800px; /* Limit the width for readability */
+    margin-left: auto; /* Center the block */
+    margin-right: auto; /* Center the block */
+}
+
+.agent-photo {
+    width: 350px; /* Adjust to your preference */
+    height: 350px; /* Maintain square aspect ratio */
+    border-radius: 50%; /* Keep circular shape */
+    margin: 0 auto 20px; /* Center the image and add margin below */
+    object-fit: cover; /* Ensure the image covers the space properly */
+}
+
+.agent-introduction p {
+    margin-bottom: 20px; /* Add some space between paragraphs */
+}
+
+/* Ensure that the text is not too wide for easy reading */
+.agent-introduction p {
+    max-width: 680px; /* Optimal line length for readability */
+    margin-left: auto; /* Center the paragraph */
+    margin-right: auto; /* Center the paragraph */
+}
+
+.appointment-links {
+    margin-top: 20px;
+}
+
+.btn-primary {
+    background-color: #007bff; /* Bootstrap primary color */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Padding for larger button */
+    border-radius: 5px; /* Slightly rounded corners for the button */
+    color: white; /* White text */
+    text-decoration: none; /* No underline */
+    display: inline-block; /* Allows it to be next to other elements */
+    cursor: pointer; /* Change cursor to pointer */
+}
