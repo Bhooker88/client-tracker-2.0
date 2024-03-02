@@ -1,4 +1,4 @@
-/* Common styling for all pages */
+/* src/css/CommonStyles.css */
 .page-container {
     padding: 20px;
     max-width: 800px;
@@ -7,7 +7,8 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-family: 'Arial', sans-serif;
-    text-align: center; /* Center-aligns the content */
+    text-align: center; /* Ensures content is centrally aligned for readability */
+    line-height: 1.6; /* Improves readability */
 }
 
 .navigation-back, .contact-info {
@@ -33,56 +34,42 @@
     background-color: transparent;
 }
 
-.btn-primary {
-    position: relative;
-    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
-    color: white;
-    border: none;
-    overflow: hidden;
-}
-
-.btn-primary::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
-    transition: all 0.4s;
-}
-
-.btn-primary:hover::after {
-    left: 100%;
-}
-
 .contact-info ul {
     list-style-type: none;
     padding: 0;
+    margin-top: 0; /* Aligns top margin with the section */
 }
 
 .contact-info li {
     margin-bottom: 10px;
+    font-size: 1rem; /* Ensures text is not too small for older eyes */
 }
-
-/* Define the gradient animation */
-@keyframes gradient-animation {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-
-/* Apply the animation to your primary buttons */
 .btn-primary {
-    background-size: 200% 200%; /* Make the gradient large enough to enable the sliding effect */
-    position: relative; /* Maintain the button's relative positioning */
+    background-color: #007bff;
     color: white;
+    text-decoration: none;
+    padding: 12px 24px; /* Slightly larger for easier clicking */
+    border-radius: 30px; /* More pronounced rounded corners for a modern look */
+    display: inline-block;
+    cursor: pointer;
     border: none;
-    overflow: hidden; /* Ensure the gradient doesn't extend outside the button bounds */
-    transition: all 0.3s ease; /* Smooth transition for other effects */
+    font-size: 1rem; /* Clear readability */
+    font-weight: bold; /* Makes text stand out */
+    transition: transform 0.3s ease; /* Smooth transformation when hovered */
+    background-size: 300% 100%; /* Extended background size for the gradient effect */
+    background-image: linear-gradient(to right, #4facfe, #00f2fe, #4facfe, #00f2fe); /* Tri-color gradient for depth */
 }
 
 .btn-primary:hover {
-    animation: gradient-animation 3s linear infinite; /* Continuous animation when hovered */
+    transform: scale(1.05); /* Slightly enlarges button on hover for feedback */
+    animation: gradient-shift 3s ease infinite; /* Applies the continuous animation */
+}
+
+@keyframes gradient-shift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
 }
