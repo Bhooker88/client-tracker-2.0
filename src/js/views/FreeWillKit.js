@@ -4,7 +4,8 @@ import "../../styles/FreeWillKit.css";
 import '../../styles/CommonStyles.css';
 
 const FreeWillKit = () => {
-    const calendlyLink = "https://calendly.com/thooker86/work-appointments";
+    const freeWillKitCalendlyLink = "https://calendly.com/thooker86/work-appointments?text=FreeWillKit";
+    const freeWillKitEmail = "mailto:thooker@globeserur.com?subject=Inquiry%20about%20Free%20Will%20Kit&body=Hi%20Trysha,";
     return (
         <div className="freewill-container">
             
@@ -22,11 +23,11 @@ const FreeWillKit = () => {
                 <h2>Get Started Today</h2>
                 <p>To receive your Free Will Kit and start the process, please contact Trysha:</p>
                 <ul>
-                <li><a href="mailto:thooker@globeserur.com?subject=Inquiry&body=Hi Trysha,">Email me</a> Use the link or send me an Email at thooker@globeserur.com</li>
+                <li><a href={freeWillKitEmail}>Email me</a> Use the link or send me an Email at thooker@globeserur.com</li>
                         <li>Phone- Call or Text : 989-295-3501</li>
-                </ul>
-                <p>Or schedule a meeting directly:</p>
-                <a href={calendlyLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Schedule A Meeting</a>
+                    </ul>
+                    <p>Or schedule a meeting directly:</p>
+                    <a href={freeWillKitCalendlyLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Schedule A Meeting</a>
                 <div className="navigation-back">
                 <Link to="/" className="back-to-home">← Back to Home</Link>
             </div>

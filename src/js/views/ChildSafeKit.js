@@ -4,7 +4,8 @@ import "../../styles/ChildSafeKit.css";
 import '../../styles/CommonStyles.css';
 
 const ChildSafeKit = () => {
-    const calendlyLink = "https://calendly.com/thooker86/work-appointments";
+    const childSafeKitCalendlyLink = "https://calendly.com/thooker86/work-appointments?text=ChildSafeKit";
+    const childSafeKitEmail = "mailto:thooker@globeserur.com?subject=Inquiry%20about%20Child%20Safe%20Kit&body=Hi%20Trysha,";
     return (
         <div className="childsafe-container">
             <h1>Protect Your Children with the Child Safe Kit App</h1>
@@ -31,11 +32,11 @@ const ChildSafeKit = () => {
                 <div className="contact-info">
                     <p>To get started and receive your free activation code, please contact Trysha:</p>
                     <ul>
-                    <li><a href="mailto:thooker@globeserur.com?subject=Inquiry&body=Hi Trysha,">Email me</a> Use the link or send me an Email at thooker@globeserur.com</li>
+                    <li><a href={childSafeKitEmail}>Email me</a> Use the link or send me an Email at thooker@globeserur.com</li>
                         <li>Phone- Call or Text : 989-295-3501</li>
                     </ul>
                     <p>Or schedule a meeting directly:</p>
-                    <a href={calendlyLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Schedule A Meeting</a>
+                    <a href={childSafeKitCalendlyLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Schedule A Meeting</a>
 					<div className="navigation-back">
                 <Link to="/" className="back-to-home">← Back to Home</Link>
             </div>

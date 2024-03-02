@@ -6,7 +6,11 @@ import '../../styles/CommonStyles.css';
 
 const Accidental = () => {
     
-    const calendlyLink = "https://calendly.com/thooker86/work-appointments";
+    const accidentalCalendlyLink = "https://calendly.com/thooker86/work-appointments?text=AccidentalCertificate";
+    const accidentalEmail = "mailto:thooker@globeserur.com?subject=Inquiry%20about%20$2,000%20Accidental%20Death%20and%20Dismemberment%20Certificate&body=Hi%20Trysha,";
+
+// Use accidentalCalendlyLink and accidentalEmail in your <a> tags respectively
+
     return (
         <div className="accidental-container">
             
@@ -22,11 +26,11 @@ const Accidental = () => {
                 <h2>Claim Your Free Certificate</h2>
                 <p>To receive your free $2,000 Accidental Death and Dismemberment Certificate, please contact me:</p>
                 <ul>
-                <li><a href="mailto:thooker@globeserur.com?subject=Inquiry&body=Hi Trysha,">Email me</a> Use the link or send me an Email at thooker@globeserur.com</li>
+                <li><a href={accidentalEmail}>Email me</a> Use the link or send me an Email at thooker@globeserur.com</li>
                         <li>Phone- Call or Text : 989-295-3501</li>
-                </ul>
-                <p>Or schedule a meeting directly to learn more:</p>
-                <a href={calendlyLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Schedule A Meeting</a>
+                    </ul>
+                    <p>Or schedule a meeting directly:</p>
+                    <a href={accidentalCalendlyLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Schedule A Meeting</a>
                 <div className="navigation-back">
                 <Link to="/" className="back-to-home">← Back to Home</Link>
             </div>
