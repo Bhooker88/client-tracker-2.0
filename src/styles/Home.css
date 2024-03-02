@@ -92,3 +92,33 @@
     display: inline-block; /* Allows it to be next to other elements */
     cursor: pointer; /* Change cursor to pointer */
 }
+@media (max-width: 768px) { /* Adjusts styles for devices with width less than 768px */
+    .offers-section li, .contact-info li {
+        width: 100%; /* Makes the list item take full width */
+        margin-bottom: 15px; /* Adds more space between items */
+    }
+
+    .offers-section a, .contact-info a {
+        white-space: nowrap; /* Prevents the text from wrapping */
+        overflow: hidden; /* Hides overflow text */
+        text-overflow: ellipsis; /* Adds ellipsis if the text overflows */
+        display: block; /* Makes the link take the full width of its container */
+        padding: 10px; /* Increases padding for better tapability */
+    }
+
+    .btn-primary {
+        width: auto; /* Allows the button to expand as needed */
+        max-width: 100%; /* Ensures the button doesn't exceed the container width */
+        overflow: hidden; /* Hides overflow text */
+        text-overflow: ellipsis; /* Adds ellipsis if the text overflows */
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .agent-photo {
+        width: 200px; /* Smaller width for mobile devices */
+        height: 200px; /* Smaller height to maintain aspect ratio */
+        margin: 10px auto; /* Adjust margin for mobile layout */
+    }
+}
