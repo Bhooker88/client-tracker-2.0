@@ -31,8 +31,8 @@ const ChildSafeKit = () => {
                 <div className="contact-info">
                     <p>To get started and receive your free activation code, please contact Trysha:</p>
                     <ul>
-                        <li>Email: thooker@globeserur.com</li>
-                        <li>Phone: 989-295-3501</li>
+                    <li><a href="mailto:thooker@globeserur.com?subject=Inquiry&body=Hi Trysha,">Email me</a> Use the link or send me an Email at thooker@globeserur.com</li>
+                        <li>Phone- Call or Text : 989-295-3501</li>
                     </ul>
                     <p>Or schedule a meeting directly:</p>
                     <a href={calendlyLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Schedule A Meeting</a>
