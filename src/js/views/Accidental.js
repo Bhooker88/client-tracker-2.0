@@ -32,9 +32,14 @@ const Accidental = () => {
                     <p>Or schedule a meeting directly:</p>
                     <a href={accidentalCalendlyLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Schedule A Meeting</a>
                 <div className="navigation-back">
-                <Link to="/" className="back-to-home">← Back to Home</Link>
-            </div>
-            </div>
+                         <Link to="/" className="back-to-home">← Back to Home</Link>
+                </div>
+                    <div className="additional-links">
+                         <Link to="/childsafekit" className="additional-link">Child Safe Kit</Link>
+                         <br></br>
+                         <Link to="/freewillkit" className="additional-link">Free Will Kit</Link>
+                    </div> 
+          </div>
         </div>
     );
 };
