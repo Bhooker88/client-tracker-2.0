@@ -14,17 +14,17 @@ const Accidental = () => {
     return (
         <div className="accidental-container">
             
-            <h1>Secure Your Peace of Mind with a $2,000 Accidental Death and Dismemberment Certificate</h1>
+            <h1>Secure Your Peace of Mind with a $2,000 Accidental Death and Dismemberment Policy</h1>
             <p>
-                Unforeseen accidents can impact anyone, leaving families to deal with emotional and financial strain. The $2,000 Accidental Death and Dismemberment Certificate provided by us offers a safety net, ensuring that you and your loved ones have support during these challenging times.
+                Unforeseen accidents can impact anyone, leaving families to deal with emotional and financial strain. The $2,000 Accidental Death and Dismemberment Policy provided by us offers a safety net, ensuring that you and your loved ones have support during these challenging times.
             </p>
             <p>
-                This certificate is designed to provide crucial financial assistance in the event of an accident, helping cover unexpected costs and alleviating financial burdens.
+                This policy is designed to provide crucial financial assistance in the event of an accident, helping cover unexpected costs and alleviating financial burdens.
             </p>
             
             <div className="contact-info">
-                <h2>Claim Your Free Certificate</h2>
-                <p>To receive your free $2,000 Accidental Death and Dismemberment Certificate, please contact me:</p>
+                <h2>Claim Your Free Policy</h2>
+                <p>To receive your free $2,000 Accidental Death and Dismemberment Policy, please contact me:</p>
                 <ul>
                 <li><a href={accidentalEmail}>Email me</a> Use the link or send me an Email at thooker@globeserur.com</li>
                         <li>Phone- Call or Text : 989-295-3501</li>
