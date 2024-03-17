@@ -17,17 +17,23 @@ const Home = () => {
             <div className="agent-introduction">
                 <img src={tryshaImage} alt="Trysha Hooker" className="agent-photo"/>
                 <p>
-                    Welcome! I'm Trysha Hooker, dedicated to guiding you through the intricacies of life insurance and ensuring your family's financial security. I specialize in providing comprehensive coverage solutions, including death benefits and living wills.
-                </p>
-                <p>
-                    Many aren't aware that employer-provided life insurance policies may end if your employment does. It's essential to have a personal policy that safeguards your family's future, regardless of your employment status. I’m here to help you understand your options, with a focus on building a safety net that remains firm.
-                </p>
-                <p>
-                    I am licensed in Michigan and New Hampshire and ready to assist you in finding the right plan. Discussing your life insurance needs shouldn’t be a high-pressure situation. That's why I offer no-cost, no-obligation consultations to explore how life insurance can benefit you and your family.
-                </p>
-                <p>
-                    Furthermore, I offer exclusive no-cost benefits that you can take advantage of immediately, without any obligation to purchase separate policies. These benefits are designed to provide immediate value and peace of mind, ensuring that you can make informed decisions about your family’s security.
-                </p>
+    Welcome, I’m Trysha Hooker. Think of me as your guide in navigating the world of life insurance. I’m here not just to provide insurance, but to ensure your family has the security and peace they deserve. It’s about more than policies—it’s about protecting the heart of your home.
+</p>
+<p>
+    Many don’t realize that life insurance tied to your job might not cover you forever. It often disappears when you leave your position. That's a significant gap in your family's safety net. I’m here to help close that gap, ensuring that your coverage is consistent, offering you and your family enduring peace of mind.
+</p>
+<p>
+    Serving Michigan and New Hampshire, I’m ready to sit down with you, understand your unique situation, and explore the options. This conversation aims for clarity, not pressure. It's a free, no-obligation opportunity to learn how to safeguard your family’s future, adapting to whatever changes life may bring.
+</p>
+<p>
+    I also provide special, no-cost benefits to immediately enhance your family’s safety: a Free Will Kit (covering both last will and testament and living wills), Child Safe Kit, and a $2,000 Accidental Death and Dismemberment Certificate. Explore these benefits by clicking on the links below and see how they could support your family. Remember, there's absolutely no obligation to purchase additional services. It’s about giving you the right coverage and peace of mind for your family.
+</p>
+<p>
+    Interested in learning more or ready to get started with any of these no-cost benefits? Feel free to schedule a meeting or contact me directly via email or phone. Let's ensure your family's protection together.
+</p>
+
+
+
                 <div className="appointment-links">
                     <a href={calendlyLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Schedule A Meeting</a>
                     <p>Email: <a href={`mailto:${emailContact}`}>{emailContact}</a></p>
