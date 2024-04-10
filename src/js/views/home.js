@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../../styles/Home.css'; // Make sure the path matches your file structure
+import '../../styles/Home.css'; 
 
 const Home = () => {
   const [clients, setClients] = useState(() => {
@@ -95,9 +95,9 @@ const Home = () => {
   const confirmDelete = (index) => {
     const isConfirmed = window.confirm("Are you sure you want to delete this client?");
     if (isConfirmed) {
-      // Create a new array excluding the client at the given index
+     
       const updatedClients = clients.filter((_, clientIndex) => clientIndex !== index);
-      setClients(updatedClients); // Update the state with the filtered array
+      setClients(updatedClients); 
     }
   };
 
@@ -106,14 +106,12 @@ const Home = () => {
     <div>
       <form onSubmit={addClient} className="form-container">
         <div className="row">
-          {/* Personal details inputs */}
           <div className="input-group"><label htmlFor="firstName">First Name</label><input id="firstName" name="firstName" value={newClient.firstName} onChange={handleChange} required /></div>
           <div className="input-group"><label htmlFor="lastName">Last Name</label><input id="lastName" name="lastName" value={newClient.lastName} onChange={handleChange} required /></div>
           <div className="input-group"><label htmlFor="email">Email Address</label><input id="email" name="email" type="email" value={newClient.email} onChange={handleChange} required /></div>
           <div className="input-group"><label htmlFor="phoneNumber">Phone Number</label><input id="phoneNumber" name="phoneNumber" value={newClient.phoneNumber} onChange={handleChange} required /></div>
         </div>
         <div className="row">
-          {/* Meeting details inputs */}
           <div className="input-group"><label htmlFor="dateMet">Date Met</label><input id="dateMet" name="dateMet" type="date" value={newClient.dateMet} onChange={handleChange} required /></div>
           <div className="input-group"><label htmlFor="alpPurchased">ALP Purchased</label><input id="alpPurchased" name="alpPurchased" type="number" value={newClient.alpPurchased} onChange={handleChange} required /></div>
           <div className="policy-inputs-container">
@@ -196,7 +194,7 @@ const Home = () => {
                   {editingClient?.index === index ? 
                     <button onClick={saveEdit} className="save-button">Save</button> : 
                     <button onClick={() => startEdit(index)} className="edit-button">Edit</button>}
-                    <button onClick={() => confirmDelete(index)} className="btn btn-danger ml-2">Delete</button>
+                    <button onClick={() => confirmDelete(index)} className="btn btn-sm btn-danger ms-2 mb-1 ml-2">Delete</button>
                 </td>
               </tr>
             ))}

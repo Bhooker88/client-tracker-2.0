@@ -1,4 +1,3 @@
-/* Home.css - Full CSS including all adjustments */
 .form-container {
     display: flex;
     flex-direction: column;
@@ -8,59 +7,60 @@
   .row {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start; /* Ensure alignment when inputs wrap */
-    flex-wrap: wrap; /* Allow inputs to wrap as needed */
+    align-items: flex-start;
+    flex-wrap: wrap; 
   }
   
   .input-group {
     display: flex;
     flex-direction: column;
-    margin-right: 20px; /* Space between input groups */
-    flex: 1; /* Adjust flex item widths evenly */
+    margin-right: 20px; 
+    flex: 1; 
   }
   
   .input-group:last-child {
-    margin-right: 0; /* Avoids extra margin for the last input group */
+    margin-right: 0; 
   }
   
-  /* Handles layout for policy number inputs, allowing vertical stacking */
+
   .policy-inputs-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align policy number inputs to the start */
-    width: calc(25% - 20px); /* Adjust width to align with other input groups */
-    margin-right: 20px; /* Consistent spacing with other input groups */
+    align-items: flex-start; 
+    width: calc(25% - 20px); 
+    margin-right: 20px; 
+    margin-top: 26px;
   }
   
   .policy-number-input {
-    margin-bottom: 10px; /* Adds spacing between each policy number input */
+    margin-bottom: 10px;
   }
   
-  /* Ensures button sizes are consistent and aligned */
+
   .add-policy-btn, .submit-btn {
     padding: 10px 20px;
-    background-color: #28a745; /* Green color */
+    background-color: #28a745; 
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: auto; /* Prevents button from stretching full width */
-    align-self: center; /* Center button if in a flex container */
+    width: auto; 
+    align-self: center;
   }
   
   .add-policy-btn:hover, .submit-btn:hover {
-    background-color: #218838; /* Darker shade of green for hover */
+    background-color: #218838; 
   }
   
-  /* Aligns the submit button below form inputs */
+
   .submit-btn-container {
     display: flex;
-    justify-content: center; /* Center the submit button */
+    justify-content: center; 
     width: 100%;
     margin-top: 20px;
   }
   
-  /* Table styling for consistency and readability */
+
   .table-container {
     margin-top: 20px;
     overflow-x: auto;
@@ -88,12 +88,12 @@
     background-color: #f9f9f9;
   }
   
-  /* Adjustments for labels and inputs for better clarity and spacing */
+
   .form-container label {
     margin-bottom: 5px;
   }
   
   .form-container input, .form-container label {
-    width: auto; /* Adjusts width to fit content, might need to adjust based on specific layout needs */
+    width: auto; 
   }
   

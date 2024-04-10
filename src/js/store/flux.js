@@ -33,13 +33,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				});
 				setStore({ demo });
 			},
-			// Action to add a new client
 			addClient: (client) => {
 				const store = getStore();
 				const updatedClients = [...store.clients, client];
 				setStore({ clients: updatedClients });
 			},
-			// Optionally, actions to edit or remove clients could be added here
+			
 		}
 	};
 };
