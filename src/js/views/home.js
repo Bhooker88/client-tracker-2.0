@@ -1,91 +1,207 @@
-// src/js/views/Home.js
-import React from "react";
-import { Link } from "react-router-dom";
-import "../../styles/Home.css"; // Ensure correct path
-import "../../styles/CommonStyles.css";
-import tryshaImage from "../../img/trysha.jpg"; // Update path as necessary
-
-// src/js/views/Home.js content update
+import React, { useState, useEffect } from 'react';
+import '../../styles/Home.css'; // Make sure the path matches your file structure
 
 const Home = () => {
-  const calendlyLink = "https://calendly.com/thooker86/work-appointments";
-  const emailContact = "thooker@globeserur.com";
-  const phoneContact = "(989) 295-3501";
-  return (
-    <div className="home-container">
-      <h1>Meet Trysha Hooker - Licensed Life Insurance Agent</h1>
-      <div className="agent-introduction">
-        <img src={tryshaImage} alt="Trysha Hooker" className="agent-photo" />
-        <p>
-          Welcome, I’m Trysha Hooker. Think of me as your guide in navigating
-          the world of life insurance. I’m here not just to provide insurance,
-          but to ensure your family has the security and peace they deserve.
-          It’s about more than policies—it’s about protecting the heart of your
-          home.
-        </p>
-        <p>
-          Many don’t realize that life insurance tied to your job might not
-          cover you forever. It often disappears when you leave your position.
-          That's a significant gap in your family's safety net. I’m here to help
-          close that gap, ensuring that your coverage is consistent, offering
-          you and your family enduring peace of mind.
-        </p>
-        <p>
-          Serving Michigan and New Hampshire, I’m ready to sit down with you,
-          understand your unique situation, and explore the options. This
-          conversation aims for clarity, not pressure. It's a free,
-          no-obligation opportunity to learn how to safeguard your family’s
-          future, adapting to whatever changes life may bring.
-        </p>
-        <p>
-          I also provide special, no-cost benefits to immediately enhance your
-          family’s safety: a Free Will Kit (covering both last will and
-          testament and living wills), Child Safe Kit, and a $2,000 Accidental
-          Death and Dismemberment Policy. Explore these benefits by
-          clicking on the links below and see how they could support your
-          family. Remember, there's absolutely no obligation to purchase
-          additional services. It’s about giving you the right coverage and
-          peace of mind for your family.
-        </p>
-        <p>
-          Interested in learning more or ready to get started with any of these
-          no-cost benefits? Feel free to schedule a meeting or contact me
-          directly via email or phone. Let's ensure your family's protection
-          together.
-        </p>
+  const [clients, setClients] = useState(() => {
+    const savedClients = localStorage.getItem('clients');
+    return savedClients ? JSON.parse(savedClients).map(client => ({
+      ...client,
+      policyNumbers: Array.isArray(client.policyNumbers) ? client.policyNumbers : [],
+    })) : [];
+  });
+  const [newClient, setNewClient] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNumber: '',
+    dateMet: '',
+    alpPurchased: '',
+    followUpDate: '',
+    policyNumbers: [''],
+  });
+  const [editingClient, setEditingClient] = useState(null);
 
-        <div className="appointment-links">
-          <a
-            href={calendlyLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary"
-          >
-            Schedule A Meeting
-          </a>
-          <p>
-            Email: <a href={`mailto:${emailContact}`}>{emailContact}</a>
-          </p>
-          <p>
-            Phone: <a href={`tel:${phoneContact}`}>{phoneContact}</a>
-          </p>
+  useEffect(() => {
+    localStorage.setItem('clients', JSON.stringify(clients));
+  }, [clients]);
+
+  const getSortedClients = () => [...clients].sort((a, b) => new Date(a.followUpDate) - new Date(b.followUpDate));
+
+  const handleChange = (e, index = null) => {
+    const { name, value } = e.target;
+    if (name === 'policyNumbers' && index !== null) {
+      const updatedPolicyNumbers = [...newClient.policyNumbers];
+      updatedPolicyNumbers[index] = value;
+      setNewClient({ ...newClient, policyNumbers: updatedPolicyNumbers });
+    } else {
+      setNewClient({ ...newClient, [name]: value });
+    }
+  };
+
+  const handleEditChange = (e, index = null) => {
+    const { name, value } = e.target;
+    if (name === 'policyNumbers' && index !== null) {
+      const updatedPolicyNumbers = [...editingClient.policyNumbers];
+      updatedPolicyNumbers[index] = value;
+      setEditingClient({ ...editingClient, policyNumbers: updatedPolicyNumbers });
+    } else {
+      setEditingClient({ ...editingClient, [name]: value });
+    }
+  };
+
+  const addClient = (e) => {
+    e.preventDefault();
+    setClients([...clients, newClient]);
+    setNewClient({
+      firstName: '',
+      lastName: '',
+      email: '',
+      phoneNumber: '',
+      dateMet: '',
+      alpPurchased: '',
+      followUpDate: '',
+      policyNumbers: [''],
+    });
+  };
+
+  const addPolicyNumber = (isEditing = false) => {
+    if (isEditing && editingClient) {
+      setEditingClient({
+        ...editingClient,
+        policyNumbers: [...editingClient.policyNumbers, ''],
+      });
+    } else {
+      setNewClient({
+        ...newClient,
+        policyNumbers: [...newClient.policyNumbers, ''],
+      });
+    }
+  };
+
+  const startEdit = (index) => {
+    setEditingClient({ ...clients[index], index });
+  };
+
+  const saveEdit = () => {
+    if (editingClient && editingClient.index != null) {
+      const updatedClients = [...clients];
+      updatedClients[editingClient.index] = { ...editingClient };
+      delete updatedClients[editingClient.index].index;
+      setClients(updatedClients);
+      setEditingClient(null);
+    }
+  };
+
+  const confirmDelete = (index) => {
+    const isConfirmed = window.confirm("Are you sure you want to delete this client?");
+    if (isConfirmed) {
+      // Create a new array excluding the client at the given index
+      const updatedClients = clients.filter((_, clientIndex) => clientIndex !== index);
+      setClients(updatedClients); // Update the state with the filtered array
+    }
+  };
+
+
+  return (
+    <div>
+      <form onSubmit={addClient} className="form-container">
+        <div className="row">
+          {/* Personal details inputs */}
+          <div className="input-group"><label htmlFor="firstName">First Name</label><input id="firstName" name="firstName" value={newClient.firstName} onChange={handleChange} required /></div>
+          <div className="input-group"><label htmlFor="lastName">Last Name</label><input id="lastName" name="lastName" value={newClient.lastName} onChange={handleChange} required /></div>
+          <div className="input-group"><label htmlFor="email">Email Address</label><input id="email" name="email" type="email" value={newClient.email} onChange={handleChange} required /></div>
+          <div className="input-group"><label htmlFor="phoneNumber">Phone Number</label><input id="phoneNumber" name="phoneNumber" value={newClient.phoneNumber} onChange={handleChange} required /></div>
         </div>
-      </div>
-      <div className="offers-section">
-        <h2>Exclusive Offers</h2>
-        <ul>
-          <li>
-            <Link to="/ChildSafeKit">Free Child Safe Kit</Link>
-          </li>
-          <li>
-            <Link to="/FreeWillKit">Free Will Kit</Link>
-          </li>
-          <li>
-            <Link to="/Accidental">
-              Free $2,000 Accidental Death and Dismemberment Policy
-            </Link>
-          </li>
-        </ul>
+        <div className="row">
+          {/* Meeting details inputs */}
+          <div className="input-group"><label htmlFor="dateMet">Date Met</label><input id="dateMet" name="dateMet" type="date" value={newClient.dateMet} onChange={handleChange} required /></div>
+          <div className="input-group"><label htmlFor="alpPurchased">ALP Purchased</label><input id="alpPurchased" name="alpPurchased" type="number" value={newClient.alpPurchased} onChange={handleChange} required /></div>
+          <div className="policy-inputs-container">
+  {newClient.policyNumbers.map((policyNumber, index) => (
+    <div key={index} className="policy-number-input">
+      <label htmlFor={`policyNumber-${index}`}>Policy Number {index + 1}</label>
+      <input
+        type="text"
+        name="policyNumbers"
+        id={`policyNumber-${index}`}
+        value={policyNumber}
+        onChange={(e) => handleChange(e, index)}
+        required
+      />
+    </div>
+  ))}
+  <button type="button" className="add-policy-btn" onClick={addPolicyNumber}>
+    Add Another Policy Number
+  </button>
+</div>
+          <div className="input-group"><label htmlFor="followUpDate">Follow-Up Date</label><input id="followUpDate" name="followUpDate" type="date" value={newClient.followUpDate} onChange={handleChange} required /></div>
+        </div>
+        <button type="submit" className="submit-btn">Add Client</button>
+      </form>
+  
+      <div className="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Phone Number</th>
+              <th>Date Met</th>
+              <th>ALP Purchased</th>
+              <th>Policy Numbers</th>
+              <th>Follow-Up Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {getSortedClients().map((client, index) => (
+              <tr key={index}>
+                <td>{client.firstName}</td>
+                <td>{client.lastName}</td>
+                <td>{editingClient?.index === index ? 
+                  <input type="email" name="email" value={editingClient.email} onChange={handleEditChange} /> : 
+                  client.email}
+                </td>
+                <td>{editingClient?.index === index ? 
+                  <input type="text" name="phoneNumber" value={editingClient.phoneNumber} onChange={handleEditChange} /> : 
+                  client.phoneNumber}
+                </td>
+                <td>{client.dateMet}</td>
+                <td>{editingClient?.index === index ? 
+                  <input type="number" name="alpPurchased" value={editingClient.alpPurchased} onChange={handleEditChange} /> : 
+                  client.alpPurchased}
+                </td>
+                <td>
+                  {editingClient?.index === index ? 
+                    editingClient.policyNumbers.map((num, idx) => (
+                      <div key={idx}>
+                        <input
+                          type="text"
+                          name="policyNumbers"
+                          value={num}
+                          onChange={(e) => handleEditChange(e, idx)}
+                        />
+                        {idx === editingClient.policyNumbers.length - 1 && (
+                          <button type="button" className="add-policy-btn" onClick={() => addPolicyNumber(true)}>+</button>
+                        )}
+                      </div>
+                    )) : client.policyNumbers.join(', ')}
+                </td>
+                <td>{editingClient?.index === index ? 
+                  <input type="date" name="followUpDate" value={editingClient.followUpDate} onChange={handleEditChange} /> : 
+                  client.followUpDate}
+                </td>
+                <td>
+                  {editingClient?.index === index ? 
+                    <button onClick={saveEdit} className="save-button">Save</button> : 
+                    <button onClick={() => startEdit(index)} className="edit-button">Edit</button>}
+                    <button onClick={() => confirmDelete(index)} className="btn btn-danger ml-2">Delete</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

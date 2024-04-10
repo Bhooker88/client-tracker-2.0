@@ -3,9 +3,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import  Home  from "./views/home";
-import ChildSafeKit from "./views/ChildSafeKit";
-import FreeWillKit from "./views/FreeWillKit";
-import Accidental from "./views/Accidental";
 import injectContext from "./store/appContext";
 
 
@@ -22,9 +19,6 @@ const Layout = () => {
 				<ScrollToTop>
 					<Routes>
 						<Route path="/" element={<Home />} />
-						<Route path="/childsafekit" element={<ChildSafeKit />} />
-						<Route path="/freewillkit" element={<FreeWillKit />} />
-						<Route path="/accidental" element={<Accidental />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
 				</ScrollToTop>

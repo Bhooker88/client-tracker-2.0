@@ -1,124 +1,99 @@
-/* src/css/Home.css */
-.home-container {
-    padding: 20px;
-    max-width: 1200px; /* Limit max width for better readability */
-    margin: auto; /* Center the container */
-    background-color: #f8f9fa; /* Light background color */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
-    text-align: center;
-}
-
-.offers-section {
-    margin-top: 40px;
-    background-color: white; /* Contrast background for offers */
-    padding: 20px;
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
-}
-
-.offers-section h2 {
-    margin-bottom: 20px;
-    color: #333; /* Darker text for better readability */
-}
-
-.offers-section ul {
-    list-style-type: none;
-    padding: 0;
+/* Home.css - Full CSS including all adjustments */
+.form-container {
     display: flex;
-    flex-wrap: wrap; /* Allow items to wrap */
-    gap: 20px; /* Space between offers */
-}
-
-.offers-section li {
-    background-color: #e9ecef; /* Light background for each offer */
-    padding: 15px;
-    border-radius: 8px; /* Rounded corners */
-    width: calc(33.333% - 20px); /* Three items per row minus gap */
-    text-align: center; /* Center text */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
-}
-
-.offers-section a {
-    color: #007bff; /* Bootstrap primary color for links */
-    text-decoration: none; /* No underline */
-    font-weight: bold; /* Make the link text bold */
-}
-
-/* Adjustments for agent photo and introduction */
-.agent-introduction {
-    display: block; /* Change from flex to block to stack elements vertically */
-    margin-bottom: 40px; /* Maintain bottom margin */
-    background-color: white; /* Keep background contrast */
-    padding: 20px;
-    border-radius: 8px; /* Keep rounded corners */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Maintain subtle shadow */
-    text-align: center; /* Center-align the text for better readability */
-    max-width: 800px; /* Limit the width for readability */
-    margin-left: auto; /* Center the block */
-    margin-right: auto; /* Center the block */
-}
-
-.agent-photo {
-    width: 350px; /* Adjust to your preference */
-    height: 350px; /* Maintain square aspect ratio */
-    border-radius: 50%; /* Keep circular shape */
-    margin: 0 auto 20px; /* Center the image and add margin below */
-    object-fit: cover; /* Ensure the image covers the space properly */
-}
-
-.agent-introduction p {
-    margin-bottom: 20px; /* Add some space between paragraphs */
-}
-
-/* Ensure that the text is not too wide for easy reading */
-.agent-introduction p {
-    max-width: 680px; /* Optimal line length for readability */
-    margin-left: auto; /* Center the paragraph */
-    margin-right: auto; /* Center the paragraph */
-}
-
-.appointment-links {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Ensure alignment when inputs wrap */
+    flex-wrap: wrap; /* Allow inputs to wrap as needed */
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px; /* Space between input groups */
+    flex: 1; /* Adjust flex item widths evenly */
+  }
+  
+  .input-group:last-child {
+    margin-right: 0; /* Avoids extra margin for the last input group */
+  }
+  
+  /* Handles layout for policy number inputs, allowing vertical stacking */
+  .policy-inputs-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align policy number inputs to the start */
+    width: calc(25% - 20px); /* Adjust width to align with other input groups */
+    margin-right: 20px; /* Consistent spacing with other input groups */
+  }
+  
+  .policy-number-input {
+    margin-bottom: 10px; /* Adds spacing between each policy number input */
+  }
+  
+  /* Ensures button sizes are consistent and aligned */
+  .add-policy-btn, .submit-btn {
+    padding: 10px 20px;
+    background-color: #28a745; /* Green color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: auto; /* Prevents button from stretching full width */
+    align-self: center; /* Center button if in a flex container */
+  }
+  
+  .add-policy-btn:hover, .submit-btn:hover {
+    background-color: #218838; /* Darker shade of green for hover */
+  }
+  
+  /* Aligns the submit button below form inputs */
+  .submit-btn-container {
+    display: flex;
+    justify-content: center; /* Center the submit button */
+    width: 100%;
     margin-top: 20px;
-}
-
-.btn-primary {
-    background-color: #007bff; /* Bootstrap primary color */
-    border: none; /* Remove border */
-    padding: 10px 20px; /* Padding for larger button */
-    border-radius: 5px; /* Slightly rounded corners for the button */
-    color: white; /* White text */
-    text-decoration: none; /* No underline */
-    display: inline-block; /* Allows it to be next to other elements */
-    cursor: pointer; /* Change cursor to pointer */
-}
-@media (max-width: 768px) { /* Adjusts styles for devices with width less than 768px */
-    .offers-section li, .contact-info li {
-        width: 100%; /* Makes the list item take full width */
-        margin-bottom: 15px; /* Adds more space between items */
-    }
-
-    .offers-section a, .contact-info a {
-        white-space: nowrap; /* Prevents the text from wrapping */
-        overflow: hidden; /* Hides overflow text */
-        text-overflow: ellipsis; /* Adds ellipsis if the text overflows */
-        display: block; /* Makes the link take the full width of its container */
-        padding: 10px; /* Increases padding for better tapability */
-    }
-
-    .btn-primary {
-        width: auto; /* Allows the button to expand as needed */
-        max-width: 100%; /* Ensures the button doesn't exceed the container width */
-        overflow: hidden; /* Hides overflow text */
-        text-overflow: ellipsis; /* Adds ellipsis if the text overflows */
-    }
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .agent-photo {
-        width: 200px; /* Smaller width for mobile devices */
-        height: 200px; /* Smaller height to maintain aspect ratio */
-        margin: 10px auto; /* Adjust margin for mobile layout */
-    }
-}
+  }
+  
+  /* Table styling for consistency and readability */
+  .table-container {
+    margin-top: 20px;
+    overflow-x: auto;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Adjustments for labels and inputs for better clarity and spacing */
+  .form-container label {
+    margin-bottom: 5px;
+  }
+  
+  .form-container input, .form-container label {
+    width: auto; /* Adjusts width to fit content, might need to adjust based on specific layout needs */
+  }
+  
