@@ -84,7 +84,7 @@ const Home = () => {
       return;
     }
     const newClientData = { ...newClient, userId: user.uid };
-    console.log("Attempting to add client with data:", newClientData); // Debug: Log the data being sent
+    console.log("Attempting to add client with data:", newClientData); 
 
     try {
       const docRef = await addDoc(collection(db, "clients"), newClientData);
