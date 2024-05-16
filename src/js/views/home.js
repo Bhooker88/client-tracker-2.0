@@ -2,9 +2,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { getFirestore, collection, addDoc, query, where, onSnapshot, updateDoc, doc, deleteDoc } from 'firebase/firestore';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, onAuthStateChanged, signOut } from 'firebase/auth';
 import app from '../../firebase-config';
 import '../../styles/Home.css';
+import example from "../../img/example.jpg"
 
 const db = getFirestore(app);
 const auth = getAuth(app);
@@ -27,6 +28,7 @@ const Home = () => {
   const [password, setPassword] = useState('');
   const [editingClient, setEditingClient] = useState(null);
   const [isLogin, setIsLogin] = useState(true);  // State to toggle between login and register
+  const [message, setMessage] = useState(null);  // State to show messages to the user
 
   // Authentication state changes
   useEffect(() => {
@@ -157,6 +159,21 @@ const Home = () => {
     }
   };
 
+  const handleForgotPassword = async (email) => {
+    if (!email) {
+      alert("Please enter your email address.");
+      return;
+    }
+
+    try {
+      await sendPasswordResetEmail(auth, email);
+      setMessage("Password reset email sent! Please check your inbox.");
+    } catch (error) {
+      console.error("Error sending password reset email:", error);
+      alert(`Failed to send password reset email: ${error.message}`);
+    }
+  };
+
   const handleLogout = async () => {
     await signOut(auth);
   };
@@ -266,6 +283,9 @@ const Home = () => {
         </div>
       ) : (
         <div className="auth-container">
+          <h2 className="auth-heading">
+          Maintain comprehensive client records in one centralized location, including follow-up dates to ensure timely communication. This system allows you to store essential client information such as names, email addresses, phone numbers, purchase amounts, and policy numbers. When clients acquire additional policies, you can easily update their records with new policy numbers and adjust the total alp accordingly. Register and log in to start utilizing these features.
+          </h2>
           <div className="auth-toggle">
             <button onClick={() => setIsLogin(true)} className={isLogin ? "auth-toggle-btn active" : "auth-toggle-btn"}>Login</button>
             <button onClick={() => setIsLogin(false)} className={!isLogin ? "auth-toggle-btn active" : "auth-toggle-btn"}>Register</button>
@@ -275,6 +295,7 @@ const Home = () => {
               e.preventDefault();
               handleLogin(email, password);
             }} className="auth-form">
+              {message && <div className="message">{message}</div>}
               <input
                 type="email"
                 value={email}
@@ -292,6 +313,13 @@ const Home = () => {
                 className="auth-input"
               />
               <button type="submit" className="auth-button">Login</button>
+              <button
+                type="button"
+                className="forgot-password-btn"
+                onClick={() => handleForgotPassword(email)}
+              >
+                Forgot Password?
+              </button>
             </form>
           ) : (
             <form onSubmit={(e) => {
@@ -317,6 +345,8 @@ const Home = () => {
               <button type="submit" className="auth-button">Register</button>
             </form>
           )}
+          <p><strong>Here is an example of what the client records will look like:</strong></p>
+           <img src={example} alt="Example of logged-in view" className="example-image" />
         </div>
       )}
     </div>
