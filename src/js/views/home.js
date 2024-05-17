@@ -27,10 +27,10 @@ const Home = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [editingClient, setEditingClient] = useState(null);
-  const [isLogin, setIsLogin] = useState(true);  // State to toggle between login and register
-  const [message, setMessage] = useState(null);  // State to show messages to the user
+  const [isLogin, setIsLogin] = useState(true);  
+  const [message, setMessage] = useState(null);  
 
-  // Authentication state changes
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, currentUser => {
       setUser(currentUser);
@@ -43,7 +43,7 @@ const Home = () => {
     return unsubscribe;
   }, []);
 
-  // Fetch clients from Firestore and sort by follow-up date
+  
   const loadClients = (userId) => {
     const q = query(collection(db, "clients"), where("userId", "==", userId));
     onSnapshot(q, (snapshot) => {
@@ -53,7 +53,7 @@ const Home = () => {
     });
   };
 
-  // Handle input changes
+
   const handleChange = (e, index = null) => {
     const { name, value } = e.target;
     if (name === 'policyNumbers' && index !== null) {
