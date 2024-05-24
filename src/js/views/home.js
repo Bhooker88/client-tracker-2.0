@@ -342,7 +342,7 @@ const Home = () => {
                 required
                 className="auth-input"
               />
-              <button type="submit" className="auth-button">Register</button>
+              <button type="submit" className="auth-button">Sign Up</button>
             </form>
           )}
           <p><strong>Here is an example of what the client records will look like:</strong></p>
